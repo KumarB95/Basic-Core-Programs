@@ -1,6 +1,6 @@
 package com.bridgelabz.utility;
 
-import java.util.Random;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Utility {
@@ -11,6 +11,9 @@ public class Utility {
     }
     public int getIntValue(){
         return scanner.nextInt();
+    }
+    public float getFloatValue(){
+        return scanner.nextFloat();
     }
     public char getChar(){
         return scanner.next().charAt(0);
@@ -126,5 +129,81 @@ public class Utility {
         else {
             System.out.format("Largest Number %d ",c);
         }
+    }
+
+    public Integer[][] getIntTwoDArray(int m, int n) {
+        Integer [][]array=new Integer[m][n];
+        System.out.println("Enter "+(m*n)+" Integer Values :");
+        for (int i=0;i<m;i++){
+            for (int j=0;j<n;j++){
+                array[i][j]=getIntValue();
+            }
+        }
+        return array;
+    }
+
+    public <t> void printArray(t[][] array, int m, int n) {
+        PrintWriter writer=new PrintWriter(System.out);
+        for (int i=0;i<m;i++){
+            for (int j=0;j<n;j++){
+                writer.write("arr["+ i +"]["+ j +"]="+array[i][j] );
+                writer.flush();
+            }
+            System.out.println();
+        }
+    }
+
+    public Double[][] getDoubleTwoDArray(int m, int n) {
+        Double [][]array1=new Double[m][n];
+        System.out.println("Enter "+(m*n)+" Double Values :");
+        for (int i=0;i<m;i++){
+            for (int j=0;j<n;j++){
+                array1[i][j]= scanner.nextDouble();
+            }
+        }
+        return array1;
+    }
+
+    public Boolean[][] getBooleanTwoDArray(int m, int n) {
+        Boolean [][]array2=new Boolean[m][n];
+        System.out.println("Enter "+(m*n)+" Boolean Values :");
+        for (int i=0;i<m;i++){
+            for (int j=0;j<n;j++){
+                array2[i][j]= scanner.nextBoolean();
+            }
+        }
+        return array2;
+    }
+
+    public void printArrayBoolean(Boolean[][] array2, int m, int n) {
+        PrintWriter writer=new PrintWriter(System.out);
+        for (int i=0;i<m;i++){
+            for (int j=0;j<n;j++){
+                writer.write("arr["+ i +"]["+ j +"]="+array2[i][j] );
+                writer.flush();
+            }
+            System.out.println();
+        }
+    }
+
+    public void getEuclideanDistance(int x, int y) {
+        float distance;
+        distance=(float)Math.sqrt((x*x)+(y*y));
+        System.out.println("Euclidean Distance : "+distance);
+    }
+
+    public void quadratic(int a, int b, int c) {
+        float root1,root2;
+        int delta;
+        delta=((b*b)-(4*a*c));
+        root1=(float)(-b + ((Math.sqrt(delta))/(2*a)));
+        root2=(float)(-b - ((Math.sqrt(delta))/(2*a)));
+        System.out.format("Root 1 %f ,Root 2 %f , Delta %d ",root1,root2,delta);
+    }
+
+    public void WindChill(float t, float v) {
+        double w;
+        w= (float)(35.74)+(0.6215*t)+((0.4275*t)-(35.75))*(Math.pow(v, 0.16));
+        System.out.println("Wind Chill : "+w);
     }
 }
