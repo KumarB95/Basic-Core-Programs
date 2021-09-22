@@ -206,4 +206,29 @@ public class Utility {
         w= (float)(35.74)+(0.6215*t)+((0.4275*t)-(35.75))*(Math.pow(v, 0.16));
         System.out.println("Wind Chill : "+w);
     }
+
+    public Integer[] getSumOfZero(int m) {
+        Integer[] array=new Integer[m];
+        for (int i=0;i<m;i++){
+            array[i]=scanner.nextInt();
+        }
+        return array;
+    }
+
+    public void printOutput(Integer[] array, int m) {
+        int sum, count = 0;
+
+        for (int i=0; i<m; i++) {
+            for (int j=i+1; j<m; j++) {
+                for (int k=j+1; k<m; k++) {
+                    sum = array[i]+array[j]+array[k];
+                    if (sum == 0) {
+                        count++;
+                        System.out.println(array[i] + "," + array[j]+ "," + array[k] + "=" + 0 );
+                    }
+                }
+            }
+        }
+        System.out.println("Count: " + count);
+    }
 }
